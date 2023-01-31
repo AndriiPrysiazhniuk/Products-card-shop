@@ -9,21 +9,18 @@ type PropsType = {
     img: string
 }
 
-const ProductCard = (props: PropsType) => {
+const ProductCard = ({title,description,unitPrice,img}: PropsType) => {
     return (
         <Grid>
             <Paper>
-
                 <div style={{textAlign:'center',maxWidth:'max-content'}}>
-                    <img style={{maxWidth:'300px',maxHeight:'200px'}} src={props.img} alt=""/>
-                    <h3>{props.title}</h3>
-
+                    <img style={{maxWidth:'300px',maxHeight:'200px'}} src={img} alt=""/>
+                    <h3>{title}</h3>
                     <p>
-                        {props.description}
+                        {description}
                     </p>
-
                     <div style={{marginBottom:'10px'}} >
-                        {props.unitPrice}
+                        {unitPrice}
                     </div>
                     <ProductsCount/>
                 </div>
