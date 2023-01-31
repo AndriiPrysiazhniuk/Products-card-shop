@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import ProductCard from './Components/ProductCard';
+import {Container, Grid} from '@mui/material';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const productCard = [
+        {
+            id: 1,
+            title: 'NOtebook - Asus',
+            description: 'this is office laptop',
+            unitPrice: 5057,
+            img: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png'
+        },
+        {
+            id: 2,
+            title: 'NOtebook - Apple',
+            description: 'this is laptop for very rich people',
+            unitPrice: 88150,
+            img: 'https://exe.ua/wa-data/public/shop/products/98/15/351598/images/351598001/351598001.970.jpg'
+        },
+        {
+            id: 3,
+            title: 'NOtebook - Acer',
+            description: 'this is laptop for gaming',
+            unitPrice: 35900,
+            img: ' https://www.nixsolutions.com/ru/uploads/2012/05/apple_macbook_pro_15_inch_6_gen.jpg'
+        }
+    ]
+
+    return (
+        <div>
+            <Container>
+                <Grid container>
+                    {productCard.map(el => {
+                        return <ProductCard key={el.id}
+                                            title={el.title}
+                                            description={el.description}
+                                            unitPrice={el.unitPrice}
+                                            img={el.img}/>
+                    })}
+                </Grid>
+            </Container>
+        </div>
+    )
 }
 
 export default App;
