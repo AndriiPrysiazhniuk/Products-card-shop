@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css'
 import ProductCard from './Components/ProductCard';
-import {Container, Grid} from '@mui/material';
+import {Button, Container, Grid, Icon, TextField} from '@mui/material';
+import {Search} from '@mui/icons-material';
 
 function App() {
 
@@ -32,6 +33,16 @@ function App() {
     return (
         <div>
             <Container>
+                <Grid style={{marginTop:'15px'}}>
+                    <TextField variant={'outlined'}
+                               label={'Search'}
+                    />
+                    <Button variant={'outlined'}>
+                    <Icon color={'secondary'}>
+                        <Search/>
+                    </Icon>
+                    </Button>
+                </Grid>
                 <Grid container>
                     {productCard.map(el => {
                         return <ProductCard key={el.id}
