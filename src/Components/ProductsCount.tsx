@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {Button} from '@mui/material';
 
-type PropsType = {}
 
-const ProductsCount = (props: PropsType) => {
+
+const ProductsCount = () => {
     const [value, setValue] = useState(0)
 
     const incrementValue = () => {
