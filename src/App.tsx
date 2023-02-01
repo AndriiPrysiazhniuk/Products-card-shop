@@ -3,10 +3,10 @@ import './App.css'
 import ProductCard from './Components/ProductCard';
 import {Button, Container, Grid, Icon, TextField} from '@mui/material';
 import {Search} from '@mui/icons-material';
-
+import {SearchInput} from './Components/SearchInput';
 function App() {
 
-    const productCard = [
+  const productCard = [
         {
             id: 1,
             title: 'NOtebook - Asus',
@@ -33,16 +33,11 @@ function App() {
     return (
         <div>
             <Container>
-                <Grid style={{marginTop:'15px'}}>
-                    <TextField variant={'outlined'}
-                               label={'Search'}
-                    />
-                    <Button variant={'outlined'}>
-                    <Icon color={'secondary'}>
-                        <Search/>
-                    </Icon>
-                    </Button>
-                </Grid>
+
+                {/*<SearchInput id:number,*/}
+                {/*             title:string,*/}
+                {/*             description:string,*/}
+                {/*             unitPrice:number/>*/}
                 <Grid container>
                     {productCard.map(el => {
                         return <ProductCard key={el.id}
