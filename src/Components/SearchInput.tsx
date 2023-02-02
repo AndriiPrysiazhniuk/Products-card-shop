@@ -1,31 +1,14 @@
 import React, {ChangeEvent, useState} from 'react';
 import {Button, Icon, TextField} from '@mui/material';
-import productCard from '../App';
+import InitialProductCardState from '../App';
 import {Search} from '@mui/icons-material';
 
-
-
-type ProductCardsType={
-    id:number
-    title:string
-    description:string
-    unitPrice:number
+type PropsType={
+    onChange:(e:ChangeEvent<HTMLInputElement>)=>void
 }
-export const SearchInput = (props: ProductCardsType) => {
 
-    const [query, setQuery] = useState('')
-    const [state, setState] = useState({
-        query: '',
-        list: []
-    })
+export const SearchInput = (props: PropsType) => {
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        // setQuery(e.currentTarget.value)
-
-// if (e.currentTarget.value===''){
-//     return props.title.toLowerCase().includes(e.currentTarget.value.toLowerCase())
-// }
-    }
 
     return (
         <div style={{marginTop: '15px', marginBottom: '15px'}}>
@@ -33,8 +16,7 @@ export const SearchInput = (props: ProductCardsType) => {
                        variant={'outlined'}
                        label={'Search'}
                        type={'search'}
-                       value={query}
-                       onChange={handleChange}
+                       onChange={props.onChange}
             />
 
             <Button variant={'outlined'}>
