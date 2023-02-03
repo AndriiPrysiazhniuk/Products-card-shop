@@ -37,7 +37,6 @@ function App() {
     }
 
     const searchByDescription =productCardState.filter(el => {
-        console.log(el)
         return el.description.toLowerCase().includes(value)
     })
 
