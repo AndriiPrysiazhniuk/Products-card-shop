@@ -37,6 +37,7 @@ function App() {
     }
 
     const searchByDescription =productCardState.filter(el => {
+        console.log(el)
         return el.description.toLowerCase().includes(value)
     })
 
@@ -47,6 +48,7 @@ function App() {
                 <SearchInput onChange={onChangeHandler}/>
                 <Grid container>
                     {searchByDescription.map(el => {
+
                         return <ProductCard key={el.id}
                                             title={el.title}
                                             description={el.description}
