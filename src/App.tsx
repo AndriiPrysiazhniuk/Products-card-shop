@@ -1,13 +1,13 @@
 import React, {ChangeEvent, useState} from 'react';
 import './App.css'
-import ProductCard from './Components/ProductCard';
-import {Button, Container, Grid, Icon, TextField} from '@mui/material';
+import {ProductCard} from './Components/ProductCard';
+import {Container, Grid} from '@mui/material';
 
 import {SearchInput} from './Components/SearchInput';
-import productCard from './Components/ProductCard';
+
 function App() {
 
-  const productCardState = [
+    const productCardState = [
         {
             id: 1,
             title: 'NOtebook - Asus',
@@ -31,14 +31,15 @@ function App() {
         }
     ]
 
-    const [value,setValue]=useState('')
-    const onChangeHandler=(e:ChangeEvent<HTMLInputElement>)=>{
+    const [value, setValue] = useState('')
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setValue(e.currentTarget.value)
     }
 
-    const searchByDescription =productCardState.filter(el => {
+    const searchByDescription = productCardState.filter(el => {
         return el.description.toLowerCase().includes(value)
     })
+
 
     return (
         <div>
@@ -54,6 +55,7 @@ function App() {
                                             unitPrice={el.unitPrice}
                                             img={el.img}/>
                     })}
+
                 </Grid>
             </Container>
         </div>
