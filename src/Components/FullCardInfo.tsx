@@ -4,11 +4,11 @@ import {HighlightOff} from '@mui/icons-material';
 
 type propsType = {
     img: string
-    setStateCardInfo:(stateCardInfo:boolean)=>void
+    setStateCardInfo: (stateCardInfo: boolean) => void
 };
 
 export const FullCardInfo = (props: propsType) => {
-    const onclickHandler =()=>{
+    const onclickHandler = () => {
         props.setStateCardInfo(false)
     }
     return (

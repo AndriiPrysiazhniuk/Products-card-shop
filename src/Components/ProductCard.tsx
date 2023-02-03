@@ -37,7 +37,7 @@ export const ProductCard = ({title, description, unitPrice, img}: PropsType) => 
                         <div style={{marginBottom: '10px'}} >
                             {unitPrice}
                         </div>
-                        <ProductsCount/>
+                        <ProductsCount unitPrice={unitPrice}/>
 
                     </div>
                 </Paper>

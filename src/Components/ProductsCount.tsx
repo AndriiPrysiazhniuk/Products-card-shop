@@ -2,14 +2,19 @@ import React, {useState} from 'react';
 import {Button, Icon} from '@mui/material';
 import {AddCircleOutlined, AddShoppingCart, RemoveCircle} from '@mui/icons-material';
 
-const ProductsCount = () => {
-    const [value, setValue] = useState(0)
+type PropsType = {
+    unitPrice: number
+}
+
+const ProductsCount = ({unitPrice}: PropsType) => {
+     const [value, setValue] = useState(0)
 
     const incrementValue = () => {
         if (value !== 10) {
             setValue(value + 1)
         }
     }
+
     const decrementValue = () => {
         if (value !== 0) {
             setValue(value - 1)
