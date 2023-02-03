@@ -4,18 +4,21 @@ import {HighlightOff} from '@mui/icons-material';
 
 type propsType = {
     img: string
+    setStateCardInfo:(stateCardInfo:boolean)=>void
 };
 
 export const FullCardInfo = (props: propsType) => {
+    const onclickHandler =()=>{
+        props.setStateCardInfo(false)
+    }
     return (
         <div>
             <div>
-                <Icon style={{display: 'inline-block'}}>
+                <Icon onClick={onclickHandler} style={{display: 'inline-block'}}>
                     <HighlightOff/>
                 </Icon>
                 <h1>Full card info</h1>
             </div>
-
 
             <img src={props.img} style={{maxWidth: '300px', maxHeight: '200px'}} alt="img"/>
             <div>

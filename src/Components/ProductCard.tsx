@@ -13,8 +13,7 @@ type PropsType = {
 export const ProductCard = ({title, description, unitPrice, img}: PropsType) => {
     const [stateCardInfo, setStateCardInfo] = useState(false)
 
-    const onDobleClickHandler = () => {
-
+    const onDoubleClickHandler = () => {
         setStateCardInfo(true)
         console.log(stateCardInfo)
     }
@@ -27,10 +26,10 @@ export const ProductCard = ({title, description, unitPrice, img}: PropsType) => 
                     <div style={{textAlign: 'center', maxWidth: 'max-content'}}>
                         {stateCardInfo ?
                             <img hidden/> :
-                            <img onDoubleClick={onDobleClickHandler} className={'hiddenImage'}
+                            <img onDoubleClick={onDoubleClickHandler} className={'hiddenImage'}
                                  style={{maxWidth: '300px', maxHeight: '200px'}} src={img} alt=""/>
                         }
-                        {stateCardInfo && <FullCardInfo img={img}/>}
+                        {stateCardInfo && <FullCardInfo setStateCardInfo={setStateCardInfo} img={img}/>}
                         <h3>{title}</h3>
                         <p>
                             {description}
