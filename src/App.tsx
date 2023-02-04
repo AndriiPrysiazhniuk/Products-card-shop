@@ -4,6 +4,7 @@ import {ProductCard} from './Components/ProductCard';
 import {Container, Grid} from '@mui/material';
 
 import {SearchInput} from './Components/SearchInput';
+import {Header} from './Components/Header';
 
 function App() {
 
@@ -31,25 +32,14 @@ function App() {
         }
     ]
 
-    const [value, setValue] = useState('')
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.currentTarget.value)
-    }
-
-    const searchByDescription = productCardState.filter(el => {
-        return el.description.toLowerCase().includes(value)
-    })
-
-
     return (
-        <div>
+        <div >
+
+            <Header mainTitle={'some info'}/>
             <Container>
-
-
-                <SearchInput onChange={onChangeHandler}/>
+                <SearchInput />
                 <Grid container>
-                    {searchByDescription.map(el => {
-
+                    {productCardState.map(el => {
                         return <ProductCard key={el.id}
                                             title={el.title}
                                             description={el.description}

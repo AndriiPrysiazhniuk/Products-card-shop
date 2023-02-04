@@ -3,11 +3,8 @@ import {Button, Icon, TextField} from '@mui/material';
 import InitialProductCardState from '../App';
 import {Search} from '@mui/icons-material';
 
-type PropsType={
-    onChange:(e:ChangeEvent<HTMLInputElement>)=>void
-}
 
-export const SearchInput = (props: PropsType) => {
+export const SearchInput = () => {
 
 
     return (
@@ -16,7 +13,6 @@ export const SearchInput = (props: PropsType) => {
                        variant={'outlined'}
                        label={'Search'}
                        type={'search'}
-                       onChange={props.onChange}
             />
 
             <Button variant={'outlined'}>
