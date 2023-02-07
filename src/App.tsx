@@ -1,56 +1,93 @@
-import React, {ChangeEvent, useState} from 'react';
+import React from 'react';
 import './App.css'
-import {ProductCard} from './Components/ProductCard';
-import {Container, Grid} from '@mui/material';
+import {ProductCard} from './Components/ProductCard/ProductCard';
+import Header from './Components/Header/Header';
 
-import {SearchInput} from './Components/SearchInput';
-import {Header} from './Components/Header';
+const products:ProductsType[] = [
+    {
+        id: 1,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'iPhone X',
+        description: 'A 5.5" beast of processing power from Apple',
+        price: 999
+    },
+    {
+        id: 2,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'Samsung S9',
+        description: 'The most powerful Android device on the planet',
+        price: 789
+    },
+    {
+        id: 3,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'Pixel 2',
+        description: 'The perfect phone for a clean Android experience',
+        price: 876
+    },
+    {
+        id: 4,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'Oneplus 6',
+        description: 'The latest from a long line of affordable premium devices by Oneplus',
+        price: 799
+    },
+    {
+        id: 5,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'iPhone 8',
+        description: 'The little, less-stylish brother of the iPhone X.',
+        price: 789
+    },
+    {
+        id: 6,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'LG G7 ThinQ',
+        description: 'The latest and most powerful smartphone from LG.',
+        price: 789
+    },
+    {
+        id: 7,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'Pixel 2',
+        description: 'The perfect phone for a clean Android experience',
+        price: 876
+    },
+    {
+        id: 8,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'Huawei Mate 10 Pro',
+        description: '\'The most powerful Android device yet from Huawei',
+        price: 799
+    },
+    {
+        id: 9,
+        src: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png',
+        title: 'Oneplus 6',
+        description: 'The latest from a long line of affordable premium devices by Oneplus',
+        price: 799
+    },
+]
 
-function App() {
+export type ProductsType = {
+    id: number
+    src: string
+    title: string
+    description: string
+    price: number
+}
+export function App() {
 
-    const productCardState = [
-        {
-            id: 1,
-            title: 'NOtebook - Asus',
-            description: 'this is office laptop',
-            unitPrice: 5057,
-            img: 'https://hk-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/p/r/probook_440_g8_2_.png'
-        },
-        {
-            id: 2,
-            title: 'NOtebook - Apple',
-            description: 'this is laptop for very rich people',
-            unitPrice: 88150,
-            img: 'https://exe.ua/wa-data/public/shop/products/98/15/351598/images/351598001/351598001.970.jpg'
-        },
-        {
-            id: 3,
-            title: 'NOtebook - Acer',
-            description: 'this is laptop for gaming',
-            unitPrice: 35900,
-            img: ' https://www.nixsolutions.com/ru/uploads/2012/05/apple_macbook_pro_15_inch_6_gen.jpg'
-        }
-    ]
 
     return (
-        <div >
+        <div>
+            <Header/>
+            {products.map(el => {
+                return <ProductCard key={el.id} max={100} products={el}/>
+            })}
 
-            <Header mainTitle={'some info'}/>
-            <Container>
-                <SearchInput />
-                <Grid container>
-                    {productCardState.map(el => {
-                        return <ProductCard key={el.id}
-                                            title={el.title}
-                                            description={el.description}
-                                            unitPrice={el.unitPrice}
-                                            img={el.img}/>
-                    })}
-
-                </Grid>
-            </Container>
         </div>
     )
 }
 
-export default App;
+

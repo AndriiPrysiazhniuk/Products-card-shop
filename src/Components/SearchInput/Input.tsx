@@ -1,18 +1,20 @@
-import React, {ChangeEvent, useState} from 'react';
+import {ChangeEvent, useState} from 'react';
 import {Button, Icon, TextField} from '@mui/material';
-import InitialProductCardState from '../App';
 import {Search} from '@mui/icons-material';
 
-
-export const SearchInput = () => {
-
+export const Input = () => {
+    const [value, setValue] = useState('')
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setValue(e.currentTarget.value)
+    }
 
     return (
-        <div style={{marginTop: '15px', marginBottom: '15px'}}>
+        <div>
             <TextField size={'small'}
                        variant={'outlined'}
                        label={'Search'}
                        type={'search'}
+                       onChange={onChangeHandler}
             />
 
             <Button variant={'outlined'}>
@@ -23,4 +25,3 @@ export const SearchInput = () => {
         </div>
     );
 }
-
